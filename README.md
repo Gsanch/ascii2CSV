@@ -1,5 +1,5 @@
 # ascii2CSV
-Simple converter from ascii defined dataset to CSV
+Simple converter from ascii defined dataset without delimiters to CSV
 
 ### Usage
 
