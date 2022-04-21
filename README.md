@@ -38,3 +38,8 @@ Weight,Height
 060,180
 ```
 
+Single columns are accepted in this format 
+[x,x]
+or in this one
+[x]
+where x is the column index.
