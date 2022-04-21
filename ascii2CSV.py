@@ -8,7 +8,13 @@ import json
 def parseLine(template, line):
     new_CSV_line=""
     for fields in template:
-        new_CSV_line = new_CSV_line + line[template[fields][0]:template[fields][1]] + ","
+        try:
+            new_CSV_line = new_CSV_line + line[template[fields][0]:template[fields][1]] + ","
+        except IndexError:
+            new_CSV_line = new_CSV_line + line[template[fields][0]:template[fields][0]] + ","
+        except:
+            print("Error reading field " + fields)
+            print("Line length is " + str(len(line)))
     new_CSV_line = new_CSV_line[:-1]
     new_CSV_line = new_CSV_line + '\n'
     return new_CSV_line
