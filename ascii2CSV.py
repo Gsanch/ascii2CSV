@@ -5,13 +5,20 @@
 
 import sys
 import json
+
+def detectNaN(field):
+    if (len(field.strip())==0):
+            return 'NaN'
+    else:
+            return field
+
 def parseLine(template, line):
     new_CSV_line=""
     for fields in template:
         try:
-            new_CSV_line = new_CSV_line + line[template[fields][0]:template[fields][1]] + ","
+            new_CSV_line = new_CSV_line + detectNaN(line[template[fields][0]:template[fields][1]]) + ","
         except IndexError:
-            new_CSV_line = new_CSV_line + line[template[fields][0]:template[fields][0]] + ","
+            new_CSV_line = new_CSV_line + detectNaN(line[template[fields][0]:template[fields][0]]) + ","
         except:
             print("Error reading field " + fields)
             print("Line length is " + str(len(line)))
